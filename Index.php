@@ -31,7 +31,7 @@
             .then(response => response.json())
             .then(data => {
                 $('#VencimientoDominio').text('El dominio se vence el: ' + data.VencimientoDominio);
-                $('#VencimientoSSL').text('El SSL se vence el:' + data.VencimientoSSL);
+                $('#VencimientoSSL').text('El SSL se vence el: ' + data.VencimientoSSL);
                 console.log(data);
             });
             

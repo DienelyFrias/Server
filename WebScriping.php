@@ -14,7 +14,7 @@ function obtenerFechaVencimientoAPI($dominio) {
     else {
         if (isset($datos['WhoisRecord']['registryData']['expiresDate'])){
 
-            $Vencimiento = (new DateTime($datos['WhoisRecord']['registryData']['expiresDate']))->format('Y-m-d');
+            $Vencimiento = (new DateTime($datos['WhoisRecord']['registryData']['expiresDate']))->format('d-m-Y');
             return $Vencimiento;
 
          }
@@ -22,8 +22,6 @@ function obtenerFechaVencimientoAPI($dominio) {
         
     }
 }
-
-
 
 function obtenerVencimientoSSL($dominio) {
 
@@ -54,7 +52,7 @@ function obtenerVencimientoSSL($dominio) {
             // Convertir el tiempo de expiración a una fecha legible en UTC
             $date = new DateTime('@' . $cert['validTo_time_t']);  // Crear objeto DateTime desde el timestamp UNIX
             $date->setTimezone(new DateTimeZone('UTC'));           // Establecer la zona horaria en UTC
-            return $date->format('Y-m-d');                   // Formatear la fecha en formato legible
+            return $date->format('d-m-Y');                   // Formatear la fecha en formato legible
         } else {
             return "No se pudo obtener la fecha de expiración del certificado SSL.";
         }
